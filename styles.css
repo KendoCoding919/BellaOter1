@@ -1,0 +1,28 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #fdf9f5;
+  color: #333;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.button-row button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0dede;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-row button:hover {
+  background-color: #d4cccc;
+}
