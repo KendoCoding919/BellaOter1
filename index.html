@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Archetype Selector</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="question">
+      <h1>What does your body crave today?</h1>
+      <!-- 👇 All buttons wrapped in a horizontal container -->
+      <div class="button-row">
+        <button id="btnGrounding">Grounding</button>
+        <button id="btnSoftness">Softness</button>
+        <button id="btnEnergy">Energy</button>
+        <button id="btnFreedom">Freedom</button>
+      </div>
+    </div>
+
+    <div id="productResult" style="display: none">
+      <h3 id="archetypeName"></h3>
+      <h2 id="productName"></h2>
+      <p id="productDescription"></p>
+      <p id="fabricTag"></p>
+      <img
+        id="productImage"
+        src=""
+        alt="Product Image"
+        style="width: 140px; height: 140px; border-radius: 12px"
+      />
+      <button id="startOverBtn">Start Over</button>
+    </div>
+
+    <script>
+      var products = {
+        grounding: {
+          archetypeName: "The Rooted One",
+          productName: "Embrace Bodysuit",
+          productDescription:
+            "A comforting bodysuit designed for grounded souls.",
+          fabricTag: "TENCEL Soft",
+          productImageURL: "https://via.placeholder.com/140?text=Rooted+One",
+        },
+        softness: {
+          archetypeName: "The Gentle Whisper",
+          productName: "Cloud Soft Sweater",
+          productDescription:
+            "Wrap yourself in unparalleled softness and warmth.",
+          fabricTag: "Organic Cotton",
+          productImageURL: "https://via.placeholder.com/140?text=Softness",
+        },
+        energy: {
+          archetypeName: "The Vibrant Spark",
+          productName: "Radiance Activewear",
+          productDescription: "Energize your day with breathable fabrics.",
+          fabricTag: "Cooling Mesh",
+          productImageURL: "https://via.placeholder.com/140?text=Energy",
+        },
+        freedom: {
+          archetypeName: "The Unbound",
+          productName: "Freedom Jacket",
+          productDescription:
+            "Lightweight jacket for those who love to roam free.",
+          fabricTag: "Recycled Nylon",
+          productImageURL: "https://via.placeholder.com/140?text=Freedom",
+        },
+      };
+
+      var questionDiv = document.getElementById("question");
+      var productDiv = document.getElementById("productResult");
+      var archetypeNameEl = document.getElementById("archetypeName");
+      var productNameEl = document.getElementById("productName");
+      var productDescriptionEl = document.getElementById("productDescription");
+      var fabricTagEl = document.getElementById("fabricTag");
+      var productImageEl = document.getElementById("productImage");
+      var startOverBtn = document.getElementById("startOverBtn");
+
+      function showProduct(key) {
+        var product = products[key];
+        if (!product) return;
+
+        questionDiv.style.display = "none";
+        productDiv.style.display = "block";
+
+        archetypeNameEl.textContent = product.archetypeName;
+        productNameEl.textContent = product.productName;
+        productDescriptionEl.textContent = product.productDescription;
+        fabricTagEl.textContent = "Fabric: " + product.fabricTag;
+        productImageEl.src = product.productImageURL;
+      }
+
+      document.getElementById("btnGrounding").onclick = function () {
+        showProduct("grounding");
+      };
+      document.getElementById("btnSoftness").onclick = function () {
+        showProduct("softness");
+      };
+      document.getElementById("btnEnergy").onclick = function () {
+        showProduct("energy");
+      };
+      document.getElementById("btnFreedom").onclick = function () {
+        showProduct("freedom");
+      };
+
+      startOverBtn.onclick = function () {
+        productDiv.style.display = "none";
+        questionDiv.style.display = "block";
+      };
+    </script>
+  </body>
+</html>
